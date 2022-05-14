@@ -32,7 +32,7 @@
 - 5/31 ~ 6/6: 미흡한 부분 수정 및 오류 확인
 - 6/7 ~: 미흡한 부분 수정 및 추가 구현
 #### 역할 분담
-- 표세훈 (팀장) : 리눅스 서버 관리/구현 & 홈페이지 코드 담당 / E-mail : kimpyo9357@navercom / GitHub ID : kimpyo9357
+- 표세훈 (팀장) : 리눅스 서버 관리/구현 & 홈페이지 코드 담당 / E-mail : kimpyo9357@navercom/ GitHub ID : kimpyo9357
 - 안상현 (팀원) : 홈페이지 제작 담당 /E-mail : tedan96@naver.com/ GitHub ID : tedan96
 ### GitHub Link
 - https://github.com/kimpyo9357/Profile-Database
