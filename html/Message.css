@@ -1,0 +1,25 @@
+#wrap {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 600px;
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
+    background-color: skyblue;
+}
+#infor {
+    position: absolute;
+    top: 200px;
+    left: 50px;
+    font-size: 20px;
+}
+#save{
+    position: absolute;
+    top: 500px;
+    left: 500px;
+    font-size: 20px;
+    padding: 10px 20px;
+}

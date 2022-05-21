@@ -1,0 +1,29 @@
+* {
+    font-family: 맑은고딕;
+    font-weight: bold;
+}
+ 
+#wrap {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 600px;
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
+    background-color: skyblue;
+}
+button {
+    position: absolute;
+    top: 10px;
+    left: 500px;
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid whitesmoke;
+}
+ 
