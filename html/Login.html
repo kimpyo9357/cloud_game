@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Show Yout Information!</title>
+    <link rel="stylesheet" href="Login.css">
+    <style>
+        #Register{
+            margin-left: 10px;
+        }
+        #Admin{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <form class="login_form">
+            <h1>로그인</h1>
+            <input id="user_stn" name="user_stn" type="text" placeholder="학번을 입력하세요"><br>
+            <input id="user_pw" name="user_pw" type="password" placeholder="비밀번호를 입력하세요"><br>
+            <button id="Login" type="button" value="login" onclick="location.href='Information.html'">로그인</button>
+			<button id="Register" type="button" onclick="location.href='Register.html'">회원가입</button>
+            <button id="Admin" type="button" onclick="location.href='AdminLogin.html'">관리자 로그인</button>
+        </form>
+    </table>
+    </div>
+    <script src="Login.js"></script>
+</body>
+</html> 

@@ -1,0 +1,34 @@
+
+* {
+    font-family: 맑은고딕;
+    font-weight: bold;
+}
+ 
+#wrap {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 450px;
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
+    background-color: skyblue;
+}
+ 
+.Information_form {
+    font-size: 20px;
+    line-height: 250%;
+	position: absolute;
+    padding: 20px 50px;
+}
+
+ 
+input {
+    margin-bottom: 14px;
+    width: 290px;
+    height: 30px;
+    font-size: 16px;
+    border: lightgray;
+}
