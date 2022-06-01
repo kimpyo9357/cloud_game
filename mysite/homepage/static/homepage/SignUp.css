@@ -1,0 +1,94 @@
+
+* {
+    font-family: 맑은고딕;
+    font-weight: bold;
+}
+ 
+#wrap {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 450px;
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
+    background-color: skyblue;
+}
+div {
+    padding-top: 3px;
+    padding-bottom: 8px;
+}
+
+.title {
+    text-align: center;
+    font-weight: 700;
+}
+
+.name input {
+    width: 100%;
+}
+
+.password input {
+    width: 100%;
+}
+
+.passwordCheck input {
+    width: 100%;
+}
+.dept input {
+    width: 100%;
+}
+.name input {
+    width: 100%;
+}
+.stn input {
+    width: 100%;
+}
+.signUp button {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, 500%);
+    width: 10%;
+    cursor:pointer;
+}
+
+button{
+    cursor: pointer;
+    height: 30px;
+}
+
+.error{
+    font-size: 1px;
+    height: 20px;
+    color:red;
+    font-weight: 700;
+}
+ 
+/* .login_form {
+	position: absolute;
+    padding: 20px 50px;
+}
+ 
+input {
+    margin-bottom: 14px;
+    width: 290px;
+    height: 30px;
+    font-size: 16px;
+    border: lightgray;
+}
+ 
+button {
+    position: absolute;
+    top: 380px;
+    left: 150px;
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid whitesmoke;
+} */
