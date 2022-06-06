@@ -8,13 +8,15 @@
     <div id="wrap">
         <form class="Information_form">
             <h1>정보</h1>
-            <li>이름 : <span id="name"></span></li>
-            <li>아이디 : <span id="id"></span></li>
-            <li>비밀번호 : <span id="password"></span></li>
-            <li>학과 : <span id="dept"></span></li>
-            <li>학번 : <span id="stn"></span></li>
+            {% for data in data.all%}
+                <li>이름 : <span id="name">{{ data.name }}</span></li>
+                <li>학번 : <span id="stn">{{ data.user_id }}</span></li>
+                <li>아이디 : <span id="id">{{ data.identifier }}</span></li>
+                <li>비밀번호 : <span id="password">{{ data.password }}</span></li>
+                <li>학과 : <span id="dept">{{ data.department }}</span></li>
+            {%endfor%}
         </form>
     </div> 
-    <script src="Information.html"></script>
+
 </body>
 </html> 

@@ -9,15 +9,19 @@
         <h2 align="center"> 메시지 </h2>
         <table center width = "650" , height = "530" border = "3">
             <tr>
-    </table>
-    <div id="infor">
-		<input type = "checkbox" name = "Information" value = "M"> 1<br>
-		<input type = "checkbox" name = "Information" value = "F"> 2
-	</div>
-    <div id="save">
-        <input type="button" value="저장">
+        </table>
+        <form method="post">
+            {% csrf_token %}
+            <div id="infor">
+                {%for data in data.all %}
+                <input type = "checkbox" name = "check" value={{data.identifier}}> {{data.user_id}}<br>
+                {%endfor%}
+
+            </div>
+            <div id="save">
+                <button type="submit" value="Submit">저장</button>
+            </div>
+        </form>
     </div>
-    </div>
-    <script src=""></script>
 </body>
 </html> 
