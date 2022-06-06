@@ -4,7 +4,20 @@
     font-weight: bold;
 }
  
-#wrap {
+#signUpButton{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin: auto;
+    display: block;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, 500%);
+    width: 12%;
+    height: 50px;
+    cursor:pointer;
+}
+
+#wrap{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -16,6 +29,7 @@
     border-radius: 5px;
     background-color: skyblue;
 }
+
 div {
     padding-top: 3px;
     padding-bottom: 8px;
@@ -26,47 +40,30 @@ div {
     font-weight: 700;
 }
 
-.name input {
-    width: 100%;
+#name{
+    width: 98%;
 }
 
-.password input {
-    width: 100%;
+#password {
+    width: 98%;
 }
 
-.passwordCheck input {
-    width: 100%;
-}
-.dept input {
-    width: 100%;
-}
-.name input {
-    width: 100%;
-}
-.stn input {
-    width: 100%;
-}
-.signUp button {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, 500%);
-    width: 10%;
-    cursor:pointer;
+#passwordCheck {
+    width: 98%;
 }
 
-button{
-    cursor: pointer;
-    height: 30px;
+#dept {
+    width: 98%;
 }
 
-.error{
-    font-size: 1px;
-    height: 20px;
-    color:red;
-    font-weight: 700;
+#name {
+    width: 98%;
 }
+
+#stn {
+    width: 98%;
+}
+
  
 /* .login_form {
 	position: absolute;

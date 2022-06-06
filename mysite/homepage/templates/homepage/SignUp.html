@@ -6,9 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'homepage/SignUp.css' %}">
 </head>
 <body>
-
     <div id="wrap">
-
         <form method="post">
             {% csrf_token %}
             <div class="title"><h1 style="font-size: 21px;">회원가입</h1></div>
@@ -38,15 +36,14 @@
                 <input id="passwordCheck" name="password2" type="password" placeholder="비밀번호를 다시 입력해 주세요.">
                 <div id="passwordCheckError" class="error"></div>
             </div>
-
-            <select name="rule">
+            <select name="rule" style="width: 450px;">
                 <option value="none">"직책을 입력해 주세요."</option>
                 {%for data in data.all %}
                     <option value={{data.id}}>{{data.user_rule}}</option>
                 {%endfor%}
-                <br>
             </select>
             <div class="dept">
+                <br>
                 <input id="dept" name="dept" type="text" placeholder="학과를 입력해 주세요.">
                 <div id="deptError" class="error"></div>
             </div>
