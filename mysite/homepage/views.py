@@ -56,10 +56,11 @@ def message(request):
                 UserData.objects.filter(identifier=i).update(check_author=1)
         return redirect('homepage:author')
 
+
 def signup(request):
+    data = User.objects.all()
     if request.method == 'GET':
-        data = User.objects.all()
-        return render(request, 'homepage/SignUp.html', {'data' : data})
+        return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 0})
     elif request.method == 'POST':
         input_name = request.POST['name']
         input_id = request.POST['id']
@@ -69,11 +70,10 @@ def signup(request):
         input_dept = request.POST['dept']
         input_stn = request.POST['stn']
         if len(input_name) == 0 or len(input_id) == 0 or len(input_pw) == 0 or len(input_rule) == 0 or len(input_dept) == 0 or len(input_stn) == 0:
-            print("일부 요소가 빠져 있음")
+            return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 1})
         elif input_pw != input_pw2:
-            print("비밀번호가 일치하지 않음")
+            return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 2})
         else:
             print("Correct")
             UserData.objects.create(user_rule_id=input_rule,user_id=input_id,name=input_name,identifier=input_id,password=input_pw,department=input_dept,check_author=0,pub_date=datetime.datetime.now())
             return redirect('homepage:login')
-        return redirect('homepage:signup')

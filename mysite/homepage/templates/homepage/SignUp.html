@@ -8,9 +8,12 @@
 <body>
 
     <div id="wrap">
+
         <form method="post">
             {% csrf_token %}
             <div class="title"><h1 style="font-size: 21px;">회원가입</h1></div>
+            {% if message == 1 %} 입력하지 않은 영역이 있습니다. {% endif %}
+            {% if message == 2 %} 비밀번호가 일치하지 않습니다. {% endif %}
             <div class="name">
                 <input id="name" name="name" type="text" placeholder="이름을 입력해 주세요.">
                 <div id="nameError" class="error"></div>
