@@ -10,53 +10,50 @@
         <form method="post">
             {% csrf_token %}
             <div class="title"><h1 style="font-size: 21px;">회원가입</h1></div>
-            {% if message == 1 %}
-                <script type="text/javascript">
-                    alert("입력하지 않은 영역이 있습니다.");
-                </script>
-            {% endif %}
-            {% if message == 2 %}
-                <script type="text/javascript">
-                    alert("비밀번호가 일치하지 않습니다.");
-                </script>
-            {% endif %}
-            <div class="name">
-                <input id="name" name="name" type="text" placeholder="이름을 입력해 주세요.">
-                <div id="nameError" class="error"></div>
-            </div>
-            <div class="password">
-                <input id="password" name="id" type="password" placeholder="아이디를 입력해 주세요.">
-                <div id="passwordError" class="error"></div>
-            </div>
-            <div class="password">
-                <input id="password" name="password" type="password" placeholder="비밀번호를 입력해 주세요.">
-                <div id="passwordError" class="error"></div>
-            </div>
-            <div class="passwordCheck">
-                <input id="passwordCheck" name="password2" type="password" placeholder="비밀번호를 다시 입력해 주세요.">
-                <div id="passwordCheckError" class="error"></div>
-            </div>
-            <select name="rule" style="width: 450px;">
-                <option value="none">"직책을 입력해 주세요."</option>
-                {%for data in data.all %}
-                    <option value={{data.id}}>{{data.user_rule}}</option>
-                {%endfor%}
-            </select>
-            <div class="dept">
-                <br>
-                <input id="dept" name="dept" type="text" placeholder="학과를 입력해 주세요.">
-                <div id="deptError" class="error"></div>
-            </div>
-            <div class="stn">
-                <input id="stn" name="stn" type="text" placeholder="학번을 입력해 주세요.">
-                <div id="stnError" class="error"></div>
-            </div>
-            </div>
-            <div class="line">
-                <hr>
-            </div>
-            <div class="signUp">
-                <button id="signUpButton" type="submit" onclick="signUpCheck()">가입하기</button>
+                {% if message == 1 %}
+                    <script type="text/javascript">
+                        alert("입력하지 않은 영역이 있습니다.");
+                    </script>
+                {% endif %}
+                {% if message == 2 %}
+                    <script type="text/javascript">
+                        alert("비밀번호가 일치하지 않습니다.");
+                    </script>
+                {% endif %}
+                <div class="name">
+                    <input id="name" name="name" type="text" placeholder="이름을 입력해 주세요.">
+                    <div id="nameError" class="error"></div>
+                </div>
+                <div class="password">
+                    <input id="password" name="id" type="password" placeholder="아이디를 입력해 주세요.">
+                    <div id="passwordError" class="error"></div>
+                </div>
+                <div class="password">
+                    <input id="password" name="password" type="password" placeholder="비밀번호를 입력해 주세요.">
+                    <div id="passwordError" class="error"></div>
+                </div>
+                <div class="passwordCheck">
+                    <input id="passwordCheck" name="password2" type="password" placeholder="비밀번호를 다시 입력해 주세요.">
+                    <div id="passwordCheckError" class="error"></div>
+                </div>
+                <select name="rule" style="width: 450px;">
+                    <option value="none">"직책을 입력해 주세요."</option>
+                    {%for data in data.all %}
+                        <option value={{data.id}}>{{data.user_rule}}</option>
+                    {%endfor%}
+                </select>
+                <div class="dept">
+                    <br>
+                    <input id="dept" name="dept" type="text" placeholder="학과를 입력해 주세요.">
+                    <div id="deptError" class="error"></div>
+                </div>
+                <div class="stn">
+                    <input id="stn" name="stn" type="text" placeholder="학번을 입력해 주세요.">
+                    <div id="stnError" class="error"></div>
+                </div>
+                <div>
+                    <button id="signUpButton" type="submit" onclick="signUpCheck()">가입하기</button>
+                </div>
             </div>
         </form>
     </div>
