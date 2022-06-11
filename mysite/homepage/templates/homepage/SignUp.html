@@ -20,6 +20,17 @@
                         alert("비밀번호가 일치하지 않습니다.");
                     </script>
                 {% endif %}
+                {% if message == 3 %}
+                    <script type="text/javascript">
+                        alert("중복되는 ID가 이미 존재합니다.");
+                    </script>
+                {% endif %}
+                {% if message == 0 %}
+                <script type="text/javascript">
+                    alert("회원가입이 완료되었습니다. 관리자 확인 후 이용이 가능합니다.");
+                    location.href='../'
+                </script>
+                {% endif %}
                 <div class="name">
                     <input id="name" name="name" type="text" placeholder="이름을 입력해 주세요.">
                     <div id="nameError" class="error"></div>

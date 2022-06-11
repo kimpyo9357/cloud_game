@@ -14,7 +14,7 @@
 </head>
 <body>
     <div id="wrap">
-        <form method="post" action="." class="login_form">
+        <form method="post" class="login_form">
         {% csrf_token %}
         <h1>로그인</h1>
         {% if error_message %}

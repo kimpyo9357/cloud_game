@@ -1,12 +1,5 @@
-from logging.config import IDENTIFIER
-from pickle import TRUE
-from textwrap import indent
-from xml.dom.minidom import Identified
-from django.shortcuts import get_object_or_404, render, redirect
-from django.http import HttpResponse, HttpResponseRedirect
-from django.views import generic
+from django.shortcuts import render, redirect
 from .models import  User, UserData
-from django.utils import timezone
 from django.db.models import Q
 import datetime
 
@@ -56,11 +49,22 @@ def message(request):
                 UserData.objects.filter(identifier=i).update(check_author=1)
         return redirect('homepage:author')
 
+def delete(request):
+    if request.method == 'GET':
+        data = UserData.objects.filter(check_author=1)
+        return render(request, 'homepage/Delete.html', {'data' : data})
+    elif request.method == 'POST':
+        find_id = request.POST.getlist('check')
+        if len(find_id)!= 0 :
+            for i in find_id:
+                UserData.objects.filter(identifier=i).delete()
+        return redirect('homepage:author')
+
 
 def signup(request):
     data = User.objects.all()
     if request.method == 'GET':
-        return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 0})
+        return render(request, 'homepage/SignUp.html', {'data' : data})
     elif request.method == 'POST':
         input_name = request.POST['name']
         input_id = request.POST['id']
@@ -73,6 +77,10 @@ def signup(request):
             return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 1})
         elif input_pw != input_pw2:
             return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 2})
+        elif len(UserData.objects.filter(user_id=input_stn)) != 0:
+            print(len(UserData.objects.filter(user_id=input_stn)))
+            return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 3})
         else:
-            UserData.objects.create(user_rule_id=input_rule,user_id=input_id,name=input_name,identifier=input_id,password=input_pw,department=input_dept,check_author=0,pub_date=datetime.datetime.now())
-            return redirect('homepage:login')
+            UserData.objects.create(user_rule_id=input_rule,user_id=input_stn,name=input_name,identifier=input_id,password=input_pw,department=input_dept,check_author=0,pub_date=datetime.datetime.now())
+            return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 0})
+            #return redirect('homepage:login')
