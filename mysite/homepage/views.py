@@ -74,6 +74,5 @@ def signup(request):
         elif input_pw != input_pw2:
             return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 2})
         else:
-            print("Correct")
             UserData.objects.create(user_rule_id=input_rule,user_id=input_id,name=input_name,identifier=input_id,password=input_pw,department=input_dept,check_author=0,pub_date=datetime.datetime.now())
             return redirect('homepage:login')
