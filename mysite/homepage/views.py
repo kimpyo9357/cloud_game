@@ -27,7 +27,7 @@ def authorlogin(request):
     elif request.method == 'POST':
         check_id = request.POST['user_stn']
         check_pw = request.POST['user_pw']
-        if (UserData.objects.filter(Q(identifier=check_id) & Q(password=check_pw) & Q(user_rule_id=2)).exists()):
+        if (UserData.objects.filter(Q(identifier=check_id) & Q(password=check_pw) & Q(user_rule_id=2))& Q(check_author=1).exists()):
             data = UserData.objects.get(identifier=check_id)
             return redirect('homepage:author')
         else:
