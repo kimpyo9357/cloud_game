@@ -1,0 +1,93 @@
+
+* {
+    font-family: 맑은고딕;
+    font-weight: bold;
+}
+ 
+#signUpButton{
+    margin: auto;
+    display:block;
+    width: 50%;
+    height: 50px;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid whitesmoke;
+}
+
+#wrap{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 450px;
+    border: 1px solid lightskyblue;
+    border-radius: 5px;
+    background-color: skyblue;
+}
+
+div {
+    padding-top: 3px;
+    padding-bottom: 8px;
+}
+
+.title {
+    text-align: center;
+    font-weight: 700;
+}
+
+#name{
+    width: 98%;
+}
+
+#id{
+    width: 98%;
+}
+
+#password {
+    width: 98%;
+}
+
+#passwordCheck {
+    width: 98%;
+}
+
+#dept {
+    width: 98%;
+}
+
+#name {
+    width: 98%;
+}
+
+#stn {
+    width: 98%;
+}
+
+ 
+/* .login_form {
+	position: absolute;
+    padding: 20px 50px;
+}
+ 
+input {
+    margin-bottom: 14px;
+    width: 290px;
+    height: 30px;
+    font-size: 16px;
+    border: lightgray;
+}
+ 
+button {
+    position: absolute;
+    top: 380px;
+    left: 150px;
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid whitesmoke;
+} */

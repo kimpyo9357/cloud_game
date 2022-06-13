@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+        {% load static %}
+<head>
+    <title>Show Yout Information!</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage/Delete.css' %}"></head>
+<body>
+    <div id="wrap">
+        <h2 align="center"> 삭제 </h2>
+        <button id="back" type="button" onclick="location.href='../Author/'">돌아가기</button>
+        <table center width = "650" , height = "530" border = "3">
+            <tr>
+        </table>
+        <form method="post">
+            {% csrf_token %}
+            <div id="infor">
+                {%for data in data.all %}
+                <input type = "checkbox" name = "check" value={{data.identifier}}> {{data.user_id}}<br>
+                {%endfor%}
+
+            </div>
+            <div id="save">
+                <button type="submit" value="Submit">저장</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html> 
