@@ -47,21 +47,16 @@
                     <input id="passwordCheck" name="password2" type="password" placeholder="비밀번호를 다시 입력해 주세요.">
                     <div id="passwordCheckError" class="error"></div>
                 </div>
+                <div class="nickname">
+                    <input id="nickname" name="nickname" type="text" placeholder="닉네임을 입력해 주세요.">
+                    <div id="nickError" class="error"></div>
+                </div>
                 <select name="rule" style="width: 450px;">
-                    <option value="none">"직책을 입력해 주세요."</option>
+                    <option value="none">"역할을 입력해 주세요."</option>
                     {%for data in data.all %}
                         <option value={{data.id}}>{{data.user_rule}}</option>
                     {%endfor%}
                 </select>
-                <div class="dept">
-                    <br>
-                    <input id="dept" name="dept" type="text" placeholder="학과를 입력해 주세요.">
-                    <div id="deptError" class="error"></div>
-                </div>
-                <div class="stn">
-                    <input id="stn" name="stn" type="text" placeholder="학번을 입력해 주세요.">
-                    <div id="stnError" class="error"></div>
-                </div>
                 <div>
                     <button id="signUpButton" type="submit" onclick="signUpCheck()">가입하기</button>
                 </div>

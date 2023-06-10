@@ -24,11 +24,20 @@
     padding: 20px 50px;
 }
 
- 
 input {
     margin-bottom: 14px;
     width: 290px;
     height: 30px;
     font-size: 16px;
     border: lightgray;
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid whitesmoke;
+    text-align: center;
 }

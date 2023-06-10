@@ -12,7 +12,7 @@
         <button id="manage" type="button" onclick="location.href='../Message/'">메시지</button>
         <div style="overflow: scroll; width: 100%; height: 500px; padding: 10px;">
             {% for data in data.all %}
-                {{data.name}}, {{data.user_id}}, {{data.identifier}}, {{data.department}}
+                {{data.name}}, {{data.user_id}}, {{data.identifier}}
                 <br>
             {% endfor %}
         </div>

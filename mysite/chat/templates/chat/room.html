@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+<head>
+    <meta charset="utf-8" />
+    <title>Chat Room</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'chat/Room.css' %}"><style></style>
+</head>
+<body>
+    <div id="wrap">
+        <address class="login_form">
+            <textarea id="chat-log"></textarea><br />
+            <input id="chat-message-input" type="text"><br />
+            <input id="chat-message-submit" type="hidden"><br />
+        </a>
+
+        <script type="text/javascript">
+            let roomName = "{{ room_name | escapejs }}";
+    
+            let chatSocket = new WebSocket(
+                `ws://${window.location.host}/ws/chat/${roomName}/`
+            );
+    
+            chatSocket.onmessage = (e) => {
+                let data = JSON.parse(e.data);
+                let message = data['message'];
+                document.querySelector("#chat-log").value += (message + '\n');
+                var textarea = document.getElementById('chat-log');
+                textarea.scrollTop = textarea.scrollHeight;
+            };
+    
+            chatSocket.onclose = (e) => {
+                console.error('Chat socket closed unexpectedly');
+            };
+    
+            document.querySelector("#chat-message-input").focus();
+            document.querySelector("#chat-message-input").addEventListener("keyup",(e) => {
+                if (e.keyCode === 13) { 
+                    document.querySelector("#chat-message-submit").click();
+                }
+                
+            });
+    
+            document.querySelector("#chat-message-submit").addEventListener("click", (e) => {
+                let messageInputDom = document.querySelector("#chat-message-input");
+                let message = messageInputDom.value;
+                chatSocket.send(JSON.stringify({
+                    'message' : message
+                }));
+    
+                messageInputDom.value = '';
+            });
+
+
+        </script>
+    </div>
+</body>
+</html>

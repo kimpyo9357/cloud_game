@@ -71,9 +71,19 @@ def signup(request):
         input_pw = request.POST['password']
         input_pw2 = request.POST['password2']
         input_rule = request.POST['rule']
-        input_dept = request.POST['dept']
-        input_stn = request.POST['stn']
-        if len(input_name) == 0 or len(input_id) == 0 or len(input_pw) == 0 or len(input_rule) == 0 or len(input_dept) == 0 or len(input_stn) == 0:
+        input_nickname = request.POST['nickname']
+        #input_stn = request.POST['stn']
+        print(input_name,input_id,input_pw,input_rule)
+        if len(input_name) == 0 or len(input_id) == 0 or len(input_pw) == 0 or len(input_rule) == 0 or len(input_nickname) == 0 :
+            return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 1})
+        elif input_pw != input_pw2:
+            return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 2})
+        else:
+            UserData.objects.create(user_rule_id=input_rule,name=input_name,identifier=input_id,password=input_pw,nickname=input_nickname,check_author=0,pub_date=datetime.datetime.now())
+            return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 0})
+            #return redirect('homepage:login')
+        
+        '''if len(input_name) == 0 or len(input_id) == 0 or len(input_pw) == 0 or len(input_rule) == 0 or len(input_dept) == 0 or len(input_stn) == 0:
             return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 1})
         elif input_pw != input_pw2:
             return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 2})
@@ -83,4 +93,4 @@ def signup(request):
         else:
             UserData.objects.create(user_rule_id=input_rule,user_id=input_stn,name=input_name,identifier=input_id,password=input_pw,department=input_dept,check_author=0,pub_date=datetime.datetime.now())
             return render(request, 'homepage/SignUp.html', {'data' : data, 'message' : 0})
-            #return redirect('homepage:login')
+            #return redirect('homepage:login')'''
