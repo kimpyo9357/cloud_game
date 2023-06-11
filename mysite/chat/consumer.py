@@ -43,6 +43,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         message = self.client +' join out this channels'
         if len(client_list[self.room_name]) == 1:
             del client_list[self.room_name]
+            play_game = False
 
         # "room" 그룹에 메시지 전송
         await self.channel_layer.group_send(
