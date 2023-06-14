@@ -1,0 +1,118 @@
+Watching for file changes with StatReloader
+2023-06-13 20:25:59.259844: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-06-13 20:26:03.485606: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-06-13 20:26:03.536768: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-06-13 20:26:12.252665: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+HTTP GET / 200 [0.11, 112.153.199.111:50213]
+HTTP GET /static/homepage/Login.css 200 [0.02, 112.153.199.111:50213]
+Not Found: /favicon.ico
+HTTP GET /favicon.ico 404 [0.31, 112.153.199.111:50213]
+HTTP GET / 200 [0.00, 118.235.2.137:59133]
+HTTP GET /static/homepage/Login.css 200 [0.00, 118.235.2.137:7198]
+HTTP GET / 200 [0.00, 221.154.191.167:50122]
+HTTP GET /static/homepage/Login.css 200 [0.01, 221.154.191.167:50122]
+Not Found: /favicon.ico
+HTTP GET /favicon.ico 404 [0.01, 221.154.191.167:50122]
+Not Found: /favicon.ico
+HTTP GET /favicon.ico 404 [0.01, 118.235.2.137:9871]
+Not Found: /apple-touch-icon.png
+HTTP GET /apple-touch-icon.png 404 [0.02, 118.235.2.137:24636]
+Not Found: /apple-touch-icon-precomposed.png
+HTTP GET /apple-touch-icon-precomposed.png 404 [0.02, 118.235.2.137:1037]
+HTTP GET / 200 [0.02, 118.235.2.137:60012]
+HTTP GET / 200 [0.00, 112.153.199.111:50213]
+HTTP POST / 200 [0.12, 221.154.191.167:50122]
+HTTP GET /static/homepage/Information.css 200 [0.00, 221.154.191.167:50122]
+HTTP GET / 200 [0.00, 112.153.199.111:50213]
+HTTP GET / 200 [0.00, 118.235.2.137:7022]
+HTTP GET /static/homepage/Login.css 200 [0.00, 118.235.2.137:36415]
+Not Found: /favicon.ico
+HTTP GET /favicon.ico 404 [0.01, 118.235.2.137:36415]
+HTTP POST / 200 [0.00, 112.153.199.111:50213]
+HTTP GET /static/homepage/Information.css 200 [0.00, 112.153.199.111:50213]
+HTTP GET /chat/ 200 [0.00, 221.154.191.167:50122]
+HTTP GET /static/chat/Index.css 200 [0.00, 221.154.191.167:50122]
+HTTP POST / 200 [0.01, 118.235.2.137:36373]
+HTTP GET /chat/1/ 200 [0.00, 221.154.191.167:50122]
+HTTP GET /static/chat/Room.css 200 [0.00, 221.154.191.167:50122]
+WebSocket HANDSHAKING /ws/chat/1/ [221.154.191.167:50126]
+WebSocket CONNECT /ws/chat/1/ [221.154.191.167:50126]
+HTTP GET /AuthorLogin/ 200 [0.00, 118.235.2.137:59144]
+HTTP GET /static/homepage/AuthorLogin.css 200 [0.00, 118.235.2.137:59144]
+HTTP POST / 200 [0.00, 118.235.2.137:59145]
+HTTP GET /static/homepage/Information.css 200 [0.00, 118.235.2.137:59145]
+HTTP GET /chat/ 200 [0.00, 118.235.2.137:59147]
+HTTP GET /static/chat/Index.css 200 [0.00, 118.235.2.137:59147]
+WebSocket DISCONNECT /ws/chat/1/ [221.154.191.167:50126]
+HTTP GET /chat/ 200 [0.00, 221.154.191.167:50128]
+Not Found: /chat//
+HTTP GET /chat// 404 [0.01, 221.154.191.167:50128]
+HTTP GET /chat/1/ 200 [0.00, 221.154.191.167:50128]
+WebSocket HANDSHAKING /ws/chat/1/ [221.154.191.167:50129]
+WebSocket CONNECT /ws/chat/1/ [221.154.191.167:50129]
+WebSocket DISCONNECT /ws/chat/1/ [221.154.191.167:50129]
+HTTP GET / 200 [0.00, 221.154.191.167:50165]
+HTTP GET /SignUp/ 200 [0.02, 221.154.191.167:50165]
+HTTP GET /static/homepage/SignUp.css 200 [0.00, 221.154.191.167:50165]
+HTTP GET /AuthorLogin/ 200 [0.00, 221.154.191.167:50165]
+HTTP GET /static/homepage/AuthorLogin.css 200 [0.00, 221.154.191.167:50165]
+HTTP POST / 200 [0.00, 221.154.191.167:50165]
+HTTP GET /chat/ 200 [0.00, 221.154.191.167:50165]
+HTTP GET /chat/1/ 200 [0.00, 221.154.191.167:50165]
+WebSocket HANDSHAKING /ws/chat/1/ [221.154.191.167:50166]
+WebSocket CONNECT /ws/chat/1/ [221.154.191.167:50166]
+HTTP GET / 200 [0.00, 221.154.191.167:65520]
+HTTP GET /static/homepage/Login.css 200 [0.00, 221.154.191.167:65519]
+HTTP POST / 200 [0.00, 221.154.191.167:65519]
+HTTP GET /static/homepage/Information.css 200 [0.00, 221.154.191.167:65519]
+HTTP GET /chat/ 200 [0.00, 221.154.191.167:65519]
+HTTP GET /static/chat/Index.css 200 [0.00, 221.154.191.167:65519]
+HTTP GET /chat/1/ 200 [0.00, 221.154.191.167:65519]
+HTTP GET /static/chat/Room.css 200 [0.00, 221.154.191.167:65519]
+WebSocket HANDSHAKING /ws/chat/1/ [221.154.191.167:65522]
+WebSocket CONNECT /ws/chat/1/ [221.154.191.167:65522]
+WebSocket DISCONNECT /ws/chat/1/ [221.154.191.167:65522]
+WebSocket DISCONNECT /ws/chat/1/ [221.154.191.167:50166]
+HTTP GET /chat/1/ 200 [0.00, 221.154.191.167:24863]
+WebSocket HANDSHAKING /ws/chat/1/ [221.154.191.167:50172]
+WebSocket CONNECT /ws/chat/1/ [221.154.191.167:50172]
+HTTP GET / 200 [0.00, 112.153.199.111:50347]
+Warning: Input is not a terminal (fd=0).
+HTTP POST / 200 [0.01, 112.153.199.111:50347]
+HTTP GET /chat/ 200 [0.00, 112.153.199.111:50347]
+HTTP GET /static/chat/Index.css 200 [0.02, 112.153.199.111:50347]
+HTTP GET /chat/123/ 200 [0.00, 112.153.199.111:50347]
+HTTP GET /static/chat/Room.css 200 [0.00, 112.153.199.111:50347]
+WebSocket HANDSHAKING /ws/chat/123/ [112.153.199.111:50349]
+WebSocket CONNECT /ws/chat/123/ [112.153.199.111:50349]
+WebSocket DISCONNECT /ws/chat/123/ [112.153.199.111:50349]
+WebSocket DISCONNECT /ws/chat/1/ [221.154.191.167:50172]
+HTTP GET / 200 [0.00, 112.153.199.111:51778]
+HTTP GET /static/homepage/Login.css 200 [0.00, 112.153.199.111:51778]
+Not Found: /favicon.ico
+HTTP GET /favicon.ico 404 [0.01, 112.153.199.111:51778]
+HTTP GET /SignUp/ 200 [0.00, 112.153.199.111:51778]
+HTTP GET /static/homepage/SignUp.css 200 [0.00, 112.153.199.111:51778]
+HTTP GET / 200 [0.01, 112.153.199.111:49818]
+Not Found: /favicon.ico
+HTTP GET /favicon.ico 404 [0.01, 112.153.199.111:49818]
+HTTP GET / 200 [0.00, 167.94.138.35:50716]
+HTTP GET / 200 [0.00, 167.94.138.35:39218]
+Not Found: *
+HTTP PRI * 404 [0.01, 167.94.138.35:48990]
+Not Found: /favicon.ico
+HTTP GET /favicon.ico 404 [0.01, 167.94.138.35:60442]
+HTTP GET / 200 [0.01, 95.214.55.244:52272]
+Not Found: /../../mnt/mtd/Config/Account1
+HTTP GET /../../mnt/mtd/Config/Account1 404 [0.01, 193.32.162.190:43202]
+Not Found: /../../mnt/mtd/Config/Account2
+HTTP GET /../../mnt/mtd/Config/Account2 404 [0.01, 193.32.162.190:50544]
+Not Found: http://azenv.net/
+HTTP GET http://azenv.net/ 404 [0.01, 45.83.23.218:46968]
+HTTP GET / 200 [0.00, 138.197.151.250:48796]
+Not Found: /api/islogged
+HTTP GET /api/islogged 404 [0.01, 138.197.151.250:46926]
+HTTP GET / 200 [0.00, 205.210.31.228:63442]
+HTTP GET / 200 [0.00, 198.199.118.8:39836]
+HTTP GET / 200 [0.01, 198.235.24.134:61616]

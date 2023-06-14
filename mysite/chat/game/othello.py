@@ -97,7 +97,7 @@ class OthelloEnv(gym.Env):
         if self.env.player_turn == self.protagonist:
             return obs
         else:
-            action = await self.opponent.get_action(obs,self.rand_state)
+            action = await self.opponent.get_action(obs,self.rand_state,self.socket)
             obs, _, done, _ = self.env.step(action)
             if done:
                 print('done==True in reset(), do it again.')
@@ -126,7 +126,7 @@ class OthelloEnv(gym.Env):
                 opponent_move = self.possible_moves[ix]
                 self.rand_step_cnt += 1
             else:
-                opponent_move = await self.opponent.get_action(obs,self.rand_state)
+                opponent_move = await self.opponent.get_action(obs,self.rand_state,self.socket)
             obs, reward, done, _ = self.env.step(opponent_move)
             if self.render_in_step:
                 self.render()

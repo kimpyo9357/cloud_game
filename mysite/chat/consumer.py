@@ -7,7 +7,6 @@ import ctypes
 before_client = 0
 count = 0
 client_list = {}
-play_game = False
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -33,15 +32,20 @@ class ChatConsumer(AsyncWebsocketConsumer):
             }
         )
         if (self.room_name not in client_list.keys()):
-            client_list[self.room_name] = []
+            client_list[self.room_name] = {}
+            client_list[self.room_name]['client'] = []
+            client_list[self.room_name]['game'] = 0
         
-
+        client_list[self.room_name]['client'].append(self.client)
+        
         await self.accept()
 
     async def disconnect(self, close_code):
         global client_list
         message = self.client +' join out this channels'
-        if len(client_list[self.room_name]) == 1:
+        client_list[self.room_name]['client'].pop(client_list[self.room_name]['client'].index(self.client))
+
+        if len(client_list[self.room_name]['client']) == 0:
             del client_list[self.room_name]
             play_game = False
 
@@ -64,9 +68,14 @@ class ChatConsumer(AsyncWebsocketConsumer):
         global before_client, client_list
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
-        if (play_game):
-            with open('action.txt','w') as f:
-                f.write(message)
+        if (client_list[self.room_name]['game']):
+            with open('action_'+self.room_name+'.txt','r') as f:
+                temp = f.read()
+            if (temp == 'done'):
+                client_list[self.room_name]['game'] = 0
+            else:
+                with open('action_'+self.room_name+'.txt','w') as f:
+                    f.write(message)
         paring_message = message.split()
         if (before_client != self.client):
             await self.channel_layer.group_send(
@@ -80,24 +89,18 @@ class ChatConsumer(AsyncWebsocketConsumer):
             #before_client = self.client
 
     async def chat_message(self,event):
-        global client_list, play_game, human      
+        global client_list
         message = event['message']
-        temp = message.split()
-        if (len(temp) == 5):
-            if(temp[1] == 'join' and temp[2] == 'in' and not(event['client'] in client_list[event['group']])):
-                client_list[event['group']].append(event['client'])
-            elif(temp[1] == 'join' and temp[2] == 'out' and(event['client'] in client_list[event['group']])):
-                client_list[event['group']].pop(client_list[event['group']].index(event['client']))
+        temp = message.split('\n')
+        temp = temp[0].split()
+
         await self.send(text_data=json.dumps({
             'message': message
         }))
 
-        '''if len(client_list[self.room_name]) == 2 and not play_game:
-            with open('action.txt','w'): #reset
-                pass'''
         if (len(temp) == 3):
-            if(temp[0] == 'play' and temp[1] == 'game'and not play_game):
-                with open('action.txt','w'): #reset
+            if(temp[0] == 'play' and temp[1] == 'game' and not client_list[self.room_name]['game']):
+                with open('action_'+self.room_name+'.txt','w'): #reset
                         pass
                 if(temp[2] == 'random'):
                     asyncio.create_task(run.play(-1,'human','rand',socket=self))
@@ -107,11 +110,11 @@ class ChatConsumer(AsyncWebsocketConsumer):
                     asyncio.create_task(run.play(-1,'human','maximin',socket=self))
                 elif(temp[2] == 'DQN'):
                     asyncio.create_task(run.play(-1,'human','DQN',socket=self))
-                play_game = True
+                client_list[event['group']]['game'] = 1
 
     async def send_gameboard(self, board):
         global count
-        if len(str(board))<11:
+        '''if len(str(board))<11:
             await self.channel_layer.group_send(
                 self.room_group_name,
                 {
@@ -120,7 +123,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                     'group' : self.room_name
                 }
             )
-        elif (board[:11] =="Turn: BLACK" and count > 1 and play_game):
+        elif (board[:11] =="Turn: BLACK" and count > 1 and client_list[self.room_name]['game']):
             count = 0
         else:
             await self.channel_layer.group_send(
@@ -131,7 +134,16 @@ class ChatConsumer(AsyncWebsocketConsumer):
                     'group' : self.room_name
                 }
             )
-            count += 1
+            count += 1'''
+        await self.channel_layer.group_send(
+                self.room_group_name,
+                {
+                    'type': 'chat_message',
+                    'message': str(board),
+                    'group' : self.room_name
+                }
+            )    
+        return
 
 
         
