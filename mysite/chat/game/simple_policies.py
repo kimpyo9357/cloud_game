@@ -43,7 +43,7 @@ class RandomPolicy(object):
     def seed(self, seed):
         self.rnd = np.random.RandomState(seed=seed)
 
-    async def get_action(self, obs,_):
+    async def get_action(self, obs,_,socket):
         possible_moves = self.env.possible_moves
         ix = self.rnd.randint(0, len(possible_moves))
         action = possible_moves[ix]
@@ -62,7 +62,7 @@ class GreedyPolicy(object):
         else:
             self.env = env
 
-    async def get_action(self, obs,_):
+    async def get_action(self, obs,_,socket):
         my_perspective = self.env.player_turn
         new_env = copy_env(self.env)
 
@@ -145,7 +145,7 @@ class MaxiMinPolicy(object):
                 ix = int(np.argmax(disk_cnts))
             return disk_cnts[ix], possible_moves[ix]
 
-    async def get_action(self, obs,_):
+    async def get_action(self, obs,_,socket):
         my_perspective = self.env.player_turn
         disk_cnt, move = self.search(env=self.env,
                                      depth=0,
@@ -180,7 +180,7 @@ class DQNPolicy(object):
         model.compile(loss='mse', optimizer=Adam(0.005))
         return model
 
-    async def get_action(self, state, rand_state):
+    async def get_action(self, state, rand_state,socket):
         '''self.epsilon *= argsDQN.eps_decay
         if np.random.random() < self.epsilon:
             ix = self.rnd.randint(0, len(self.possible_moves))
@@ -245,7 +245,7 @@ class DQNPolicy_op(object):
         model.compile(loss='mse', optimizer=Adam(0.005))
         return model
 
-    async def get_action(self, state,_):
+    async def get_action(self, state,_,socket):
         self.epsilon *= 0.75
         if np.random.random() < self.epsilon:
             ix = self.rnd.randint(0, len(self.possible_moves))
@@ -273,35 +273,37 @@ class DQNPolicy_op(object):
     def possible_moves(self):
         return self.env.possible_moves
         
-variable = -1
+variable = {}
 class HumanPolicy(object):
     """Human policy."""
-    def __init__(self, board_size):
+    def __init__(self, board_size,socket):
         global variable
-        variable = -1
+        self.socket = socket
+        variable[socket.room_name] = -1
         self.board_size = board_size
 
     def reset(self, env):
         global variable
-        variable = -1
+        variable[self.socket.room_name] = -1
     
     def set_value(self,action):
         global variable
-        variable = action
+        variable[socket.room_name] = action
 
-    async def get_action(self, obs,_):
+    async def get_action(self, obs,_,socket):
         global variable
         temp = -1
-        old_value = variable
+        old_value = variable[socket.room_name]
         while True:
-            with open('action.txt','r') as f:
+            with open('action_'+socket.room_name+'.txt','r') as f:
                 temp = f.read()
             if temp != '':
                 #print(temp)
-                variable = int(temp)
-            #print(old_value, variable)
-            if variable != old_value:
-                return variable
+                variable[socket.room_name] = int(temp)
+
+            if variable[socket.room_name] != old_value:
+                #print(variable[socket.room_name])
+                return variable[socket.room_name]
             else:
                 await asyncio.sleep(1.0)
         '''session = PromptSession()

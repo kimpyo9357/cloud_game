@@ -295,7 +295,7 @@ class Agent:
             num_trained=num_trained
         )
 
-def create_policy(policy_type='rand', board_size=8, seed=0, search_depth=1,rand_board_count=0):
+def create_policy(policy_type='rand', board_size=8, seed=0, search_depth=1,rand_board_count=0,socket=None):
     if policy_type == 'rand':
         policy = simple_policies.RandomPolicy(seed=seed+10)
     elif policy_type == 'greedy':
@@ -309,7 +309,7 @@ def create_policy(policy_type='rand', board_size=8, seed=0, search_depth=1,rand_
         policy = simple_policies.DQNPolicy_op(board_size*board_size,board_size*board_size,rand_board_count)
         #policy.load(path="./save", model_name="DQN", version="8.8", num_trained=0)
     else:
-        policy = simple_policies.HumanPolicy(board_size)
+        policy = simple_policies.HumanPolicy(board_size,socket)
     return policy
 
 
@@ -336,13 +336,15 @@ async def play(protagonist = -1,
         board_size=board_size,
         seed=ep,
         search_depth=protagonist_search_depth,
-        rand_board_count=rand_board_count)
+        rand_board_count=rand_board_count,
+        socket = socket)
     opponent_policy = create_policy(
         policy_type=opponent_agent_type,
         board_size=board_size,
         seed=rand_seed,
         search_depth=opponent_search_depth,
-        rand_board_count=rand_board_count)
+        rand_board_count=rand_board_count,
+        socket = socket)
     #print(id(protagonist_policy),id(opponent_policy))
 
     if protagonist == 1:
@@ -381,7 +383,7 @@ async def play(protagonist = -1,
             env.render()
         done = False
         while not done:
-            action = await protagonist_policy.get_action(obs,env.rand_state)
+            action = await protagonist_policy.get_action(obs,env.rand_state,socket)
             obs, reward, done, _ = await env.step(action)
             if render:
                 env.render()
@@ -412,6 +414,8 @@ async def play(protagonist = -1,
                 print('-' * 3)
     print('#ep: {} #Wins: {}, #Draws: {}, #Loses: {}'.format(
         ep, win_cnts, draw_cnts, lose_cnts))
+    with open('action_'+socket.room_name+'.txt','w') as f:
+                f.write('done')
     #f = open("check.csv",'a')
     #f.write(str(ep) + ',' + str(win_cnts) + ',' + str(draw_cnts) + ',' + str(lose_cnts) + '\n')
     #f.close()
